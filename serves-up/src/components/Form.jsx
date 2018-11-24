@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom';
+import Slider, { Range } from 'rc-slider';
+
+import 'rc-slider/assets/index.css';
 
 export default class Form extends React.Component {
   state = {
@@ -42,6 +46,7 @@ export default class Form extends React.Component {
           <option value="vegetarian">Vegetarian</option>
           <option value="halal">Halal</option>
           <option value="kosher">Kosher</option>
+          <option value="pescatarian">Pescatarian</option>
         </ select>
         <br />
         <input
@@ -58,6 +63,9 @@ export default class Form extends React.Component {
           onChange={e => this.change(e)}
         />
         <br />
+        <div>
+          <Slider />
+        </div>
         <input
           name="email"
           placeholder="Email"
