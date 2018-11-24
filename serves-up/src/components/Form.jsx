@@ -20,30 +20,29 @@ export default class Form extends React.Component {
     e.preventDefault();
     // this.props.onSubmit(this.state);
     this.setState({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
+      diet: "",
+      restrict: "",
+      dist: "",
+      loc: ""
     });
     this.props.onChange({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
+      diet: "",
+      restrict: "",
+      dist: "",
+      loc: ""
     });
   };
 
   render() {
     return (
       <form>
-        <input
-          name="firstName"
-          placeholder="First name"
-          value={this.state.firstName}
-          onChange={e => this.change(e)}
-        />
+        <select>
+          <option value="" disabled selected>Diet Plan</option>
+          <option value="vegan">Vegan</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="halal">Halal</option>
+          <option value="kosher">Kosher</option>
+        </ select>
         <br />
         <input
           name="lastName"
