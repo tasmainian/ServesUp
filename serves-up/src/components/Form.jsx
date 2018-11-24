@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import Slider, { Range } from 'rc-slider';
+import Slider, { createSliderWithTooltip } from 'rc-slider';
 import Datalist from "./Datalist"
 import 'rc-slider/assets/index.css';
+
+function distanceFormatter(v) {
+  return `${v} m`;
+}
+
+const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 export default class Form extends React.Component {
   render() {
@@ -30,7 +36,11 @@ export default class Form extends React.Component {
         <br />
         <h4> Distance </h4>
         <div>
-          <Slider />
+          <SliderWithTooltip
+            tipFormatter={distanceFormatter}
+            tipProps={{ overlayClassName: 'm' }}
+            max={500}
+          />
         </div>
         <br />
 
