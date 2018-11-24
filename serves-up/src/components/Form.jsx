@@ -21,9 +21,9 @@ export default class Form extends React.Component {
         <br />
         <Datalist
           hasLabel='true'
-          htmlFor='datalist'
+          htmlFor='datalist2'
           label='Restrictions'
-          options='Peanuts, Pork, Dairy, Gluten, Carbs'
+          options='Peanuts, Pork, Dairy-Free, Gluten, Carbs'
           required='true'
         />
         <br />
