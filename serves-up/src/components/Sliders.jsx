@@ -6,7 +6,7 @@ import {
   Slider
 } from 'react-native';
 
-export default class Slider extends Component {
+export default class Sliders extends Component {
   constructor(props) {
    super(props)
    this.state = { age: 18 }
