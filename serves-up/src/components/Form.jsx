@@ -5,6 +5,7 @@ import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 export default class Form extends React.Component {
+
   state = {
     firstName: "",
     lastName: "",
@@ -40,6 +41,8 @@ export default class Form extends React.Component {
   render() {
     return (
       <form>
+      <br />
+      <br />
         <select>
           <option value="" disabled selected>Diet Plan</option>
           <option value="vegan">Vegan</option>
@@ -49,37 +52,28 @@ export default class Form extends React.Component {
           <option value="pescatarian">Pescatarian</option>
         </ select>
         <br />
-        <input
-          name="lastName"
-          placeholder="Last name"
-          value={this.state.lastName}
-          onChange={e => this.change(e)}
-        />
         <br />
-        <input
-          name="username"
-          placeholder="Username"
-          value={this.state.username}
-          onChange={e => this.change(e)}
-        />
         <br />
+        <select>
+          <option value="" disabled selected>Allergies</option>
+          <option value="vegan">Vegan</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="halal">Halal</option>
+          <option value="kosher">Kosher</option>
+          <option value="pescatarian">Pescatarian</option>
+        </ select>
+        <br />
+        <br />
+        <br />
+        <br />
+        <h4> Distance </h4>
         <div>
           <Slider />
         </div>
-        <input
-          name="email"
-          placeholder="Email"
-          value={this.state.email}
-          onChange={e => this.change(e)}
-        />
         <br />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={this.state.password}
-          onChange={e => this.change(e)}
-        />
+
+        <br />
+
         <br />
         <button onClick={e => this.onSubmit(e)}>Submit</button>
       </form>

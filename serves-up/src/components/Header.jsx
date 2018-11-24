@@ -13,9 +13,7 @@ export default class Header extends Component {
         Let the restaurants find you.
       </h1>
     </div>
-      <div>
-        This is the DropdownButton
-      </div>
+
     </div>
     )
   }
