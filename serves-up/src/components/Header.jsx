@@ -10,7 +10,8 @@ export default class Header extends Component {
     <div class="sandbox sandbox-correct-pronounciation">
       <h1 class="heading heading-correct-pronounciation">
         <em>Serves Up</em>
-        Let the restaurants find you.
+        <br />
+        <span>Let the restaurants find you.</span>
       </h1>
     </div>
 

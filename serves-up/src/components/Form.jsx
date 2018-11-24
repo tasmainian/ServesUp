@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
 import Datalist from "./Datalist"
+import Checkbox from "./Checkbox"
 import 'rc-slider/assets/index.css';
 
 function distanceFormatter(v) {
@@ -36,11 +37,31 @@ export default class Form extends React.Component {
       />
         <br />
         <br />
-        <Datalist
+        <h4> Restrictions </h4>
+        <br />
+
+        <Checkbox
           hasLabel='true'
-          htmlFor='datalist2'
-          label='Restrictions'
-          options='Peanuts, Pork, Dairy-Free, Gluten, Carbs'
+          htmlFor='checkbox'
+          label='Peanuts-Free'
+          required='true'
+        />
+        <Checkbox
+          hasLabel='true'
+          htmlFor='checkbox'
+          label='Dairy-Free'
+          required='true'
+        />
+        <Checkbox
+          hasLabel='true'
+          htmlFor='checkbox'
+          label='Gluten-Free'
+          required='true'
+        />
+        <Checkbox
+          hasLabel='true'
+          htmlFor='checkbox'
+          label='Low-Carbs'
           required='true'
         />
         <br />
