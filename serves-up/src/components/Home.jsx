@@ -7,39 +7,59 @@ export default class Home extends Component {
   render() {
     return (
     <div id="parent">
+    <div class="sandbox sandbox-correct-pronounciation">
+      <h1 class="heading heading-correct-pronounciation">
+        <em>Serves Up</em>
+        Let the restaurants find you.
+      </h1>
+    </div>
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-          <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              Menu
-              <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
-                </li>
-              </ul>
+        This is the DropdownButton
+      </div>
+      {/* <div class="container" id="app">
+        <div class="add-product": class="{'open': formOpen}">
+          <div class="button-copy" v-show="!formOpen" @click="formOpen = true">Add Product</div>
+          <form @submit="cancel()">
+
+            <div class="form--field">
+              <label>Product Title *</label>
+              <input type="text" class="form--element" name="title" v-model="productData.title" placeholder="Title" required="">
             </div>
-          </div>
-        </nav>
-      </div>
-      <header class="masthead">
-      <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-          <h1 class="mx-auto my-0 text-uppercase">Serves Up</h1>
-          <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-          <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+            <div class="form--container -inline">
+              <div class="form--field -short">
+                <label>Product Rating *</label>
+                <input type="number" class="form--element" name="rating" v-model="productData.rating" placeholder="Rating" required="" min="0" max="5" step="0.5">
+              </div>
+              <div class="form--field -short">
+                <label>Product Price *</label>
+                <span class="form--price">$</span>
+                <input type="text" class="form--element" name="price" v-model="productData.price" placeholder="Price" required="" min="0" max="500" pattern="\d+(\.\d{2})?">
+              </div>
+              <div class="form--field -short">
+                <label>List Price *</label>
+                <span class="form--price">$</span>
+                <input type="text" class="form--element" name="list_price" v-model="productData.list_price" placeholder="List Price" required="" min="0" max="500" pattern="\d+(\.\d{2})?">
+              </div>
+            </div>
+            <div class="form--field">
+              <label class="emoji">
+                Is Featured
+                <input type="checkbox" name="is_featured" v-bind="productData.is_featured">
+                <span></span>
+              </label>
+              <p class="featured-note">If Is Featured is selected the product will appear in a large card.</p>
+            </div>
+            <div class="form--field">
+              <label>Product Description</label>
+              <textarea class="form--element textarea" v-model="productData.description" placeholder="Description">
+              </textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Add Product</button>
+            <div class="cancel"><span @click="cancel()">Cancel</span></div>
+          </form>
         </div>
-      </div>
-    </header>
+      </div>*/}
     </div>
     )
   }
