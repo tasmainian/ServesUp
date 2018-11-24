@@ -1,0 +1,12 @@
+.jumbotron {
+  background-image:url('top-header-bg-blue.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: grey;
+}
+
+.jumbotron h1 {
+  color: white;
+  letter-spacing: 2px;
+  text-align: center;
+}
