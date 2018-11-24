@@ -11,6 +11,17 @@ function distanceFormatter(v) {
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 export default class Form extends React.Component {
+
+  state = {
+    diet: undefined,
+    restrictions: [],
+    distance: 0
+  };
+
+  handleChangeDistance = (e) => {
+    this.setState({ distance: e });
+  };
+
   render() {
     return (
       <form>
@@ -40,6 +51,8 @@ export default class Form extends React.Component {
             tipFormatter={distanceFormatter}
             tipProps={{ overlayClassName: 'm' }}
             max={500}
+            value={this.state.distance}
+            onChange={this.handleChangeDistance}
           />
         </div>
         <br />
