@@ -30,8 +30,7 @@ export default class Form extends React.Component {
         distance: this.state.distance
       }
     }).then((response) => {
-      const o = response
-      console.log(o);
+      console.log(response);
     });
     e.preventDefault();
   };

@@ -11,7 +11,9 @@ export default class Home extends Component {
     return (
     <div id="parent">
       <Header />
+
       <Form />
+
       <br />
       <br />
     </div>
