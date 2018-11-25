@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
+import React from 'react'
 import Slider, { createSliderWithTooltip } from 'rc-slider';
-import Datalist from "./Datalist"
-import Checkbox from "./Checkbox"
+import Datalist from './Datalist'
+import Checkbox from './Checkbox'
+import axios from 'axios'
 import 'rc-slider/assets/index.css';
 
 function distanceFormatter(v) {
@@ -23,7 +23,29 @@ export default class Form extends React.Component {
     this.setState({ distance: e });
   };
 
+  handleSubmit = (e) => {
+    axios.get('https://tomalama.lib.id/servesup@dev', {
+      params: {
+        ll: this.state.ll,
+        distance: this.state.distance
+      }
+    }).then((response) => {
+      const o = response
+      console.log(o);
+    });
+    e.preventDefault();
+  };
+
   render() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.setState({ 
+          ll: position.coords.latitude + ',' + position.coords.longitude
+        });
+      });
+    } else {
+    }
+
     return (
       <form>
       <br />
@@ -32,8 +54,7 @@ export default class Form extends React.Component {
         hasLabel='true'
         htmlFor='datalist'
         label='Diet Plan'
-        options='Vegan, Vegetarian, Halal, Kosher, Pescetarian'
-        required='true'
+        options='Vegan, Vegetarian, Halal, Kosher, Pescatarian'
       />
         <br />
         <br />
@@ -44,25 +65,21 @@ export default class Form extends React.Component {
           hasLabel='true'
           htmlFor='checkbox'
           label='Peanuts-Free'
-          required='true'
         />
         <Checkbox
           hasLabel='true'
           htmlFor='checkbox'
           label='Dairy-Free'
-          required='true'
         />
         <Checkbox
           hasLabel='true'
           htmlFor='checkbox'
           label='Gluten-Free'
-          required='true'
         />
         <Checkbox
           hasLabel='true'
           htmlFor='checkbox'
           label='Low-Carbs'
-          required='true'
         />
         <br />
         <br />
@@ -71,7 +88,7 @@ export default class Form extends React.Component {
           <SliderWithTooltip
             tipFormatter={distanceFormatter}
             tipProps={{ overlayClassName: 'm' }}
-            max={500}
+            max={300}
             value={this.state.distance}
             onChange={this.handleChangeDistance}
           />
@@ -81,7 +98,7 @@ export default class Form extends React.Component {
         <br />
 
         <br />
-        <button onClick={e => this.onSubmit(e)}>Submit</button>
+        <button onClick={this.handleSubmit}>Submit</button>
       </form>
     );
   }

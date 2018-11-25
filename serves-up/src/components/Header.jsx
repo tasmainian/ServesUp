@@ -7,8 +7,8 @@ export default class Header extends Component {
   render() {
     return (
     <div id="parent">
-    <div class="sandbox sandbox-correct-pronounciation">
-      <h1 class="heading heading-correct-pronounciation">
+    <div className="sandbox sandbox-correct-pronounciation">
+      <h1 className="heading heading-correct-pronounciation">
         <em>Serves Up</em>
         <br />
         <span>Let the restaurants find you.</span>
