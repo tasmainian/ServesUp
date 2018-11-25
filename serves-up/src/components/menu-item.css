@@ -15,10 +15,15 @@
     flex-flow: row;
     margin: 0 auto 20px;
     padding: 10px;
-    width: 70%;
+    width: 50%;
 
     -webkit-box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44); 
     box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44);
+}
+
+.menu-item__image {
+    width: 100px;
+    height: 100px;
 }
 
 .menu-item__name {

@@ -90,6 +90,7 @@ export default class Form extends React.Component {
       }
 
       return <MenuItem 
+                thumbnail={'/burger-icon.png'}
                 key={index}
                 itemName={menuItem.food_name}
                 restaurantName={menuItem.brand_name}
