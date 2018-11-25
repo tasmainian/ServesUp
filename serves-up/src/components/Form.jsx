@@ -2,6 +2,7 @@ import React from "react";
 import Slider, { createSliderWithTooltip } from "rc-slider";
 import Datalist from "./Datalist";
 import Checkbox from "./Checkbox";
+import MenuItem from "./MenuItem";
 import axios from "axios";
 import "rc-slider/assets/index.css";
 
@@ -60,7 +61,7 @@ export default class Form extends React.Component {
       });
     }
 
-    const childElements = this.state.menuItems.map(menuItem => {
+    const childElements = this.state.menuItems.map((menuItem, index) => {
       if (this.state.restrictions.includes("Low Carb")) {
         if (
           menuItem.nf_total_carbohydrate / menuItem.serving_weight_grams >
@@ -88,7 +89,13 @@ export default class Form extends React.Component {
         }
       }
 
-      return <li key={menuItem.nix_item_name}>{menuItem.food_name}</li>;
+      return <MenuItem 
+                key={index}
+                itemName={menuItem.food_name}
+                restaurantName={menuItem.brand_name}
+                calories={menuItem.nf_calories}
+                tags={menuItem.claims}
+              />
     });
 
     return (
@@ -152,7 +159,9 @@ export default class Form extends React.Component {
           <br />
           <button onClick={this.handleSubmit}>Submit</button>
         </form>
-        {childElements}
+        <div className="menu-item-container">
+          {childElements}
+        </div>
       </div>
     );
   }
