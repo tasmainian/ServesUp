@@ -17,6 +17,19 @@
   position: relative;
 }
 
+.scroll {
+  padding: 10em 0 10em 0;
+  margin: 0;
+  background-color: #1d1e22;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.scroll-head {
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
 
 h1 {
   color: #fff;
@@ -29,8 +42,10 @@ h1 {
 }
 
 span {
-  background-color: black;
   padding: 5px;
+  border: 2px solid #ba1f1a;
+  border-radius: 5px;
+  background-color:rgba(0, 0, 0, 0.5);
 }
 
 em {
@@ -146,3 +161,15 @@ button {
     background-color: lighten(#3fc1c9, 15%);
   }
 }
+
+#tudo { margin:0 auto; width:790px;}
+
+#tudo h1 { color: #E91E63; text-align:center; }
+
+a { color:#34a7ff}
+#tudo p { text-align:center; font-family: "Roboto", sans-serif; color: #888;}
+
+#lado { float:left; margin:20px; }
+
+.black { cursor: pointer; border: 0; background-color: #343436; padding: calc(0.9rem - 1px) 1.4rem; border-bottom: 3px solid #1d1d1d; text-decoration: none; border-radius: 2px; color: #fff; text-align: center;  font-family: 'Alegreya Sans', sans-serif; font-size: 15px;}
+.black:hover{ opacity:0.7;}
