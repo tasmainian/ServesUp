@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100%;
+  height: 400px;
+  background-image: url("../../static/img/header.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.center {
+  text-align: center;
+  padding: 100px;
+  color: white;
+}
+
+h1 {
+  font-family: "EB Garamond", serif;
+  font-size: 3.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  font-style: italic;
+  padding-top: 0.1em;
+  text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+h2 {
+  font-family: "Cardo", serif;
+  font-size: 1.5em;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  line-height: 2.2em;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+}

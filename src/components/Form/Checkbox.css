@@ -1,0 +1,7 @@
+fieldset {
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin: 0 6px 3px 0;
+}

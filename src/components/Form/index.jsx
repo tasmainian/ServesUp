@@ -1,10 +1,16 @@
+// Libraries
 import React from "react";
-import Slider, { createSliderWithTooltip } from "rc-slider";
-import Datalist from "./Datalist";
-import Checkbox from "./Checkbox";
-import MenuItem from "./MenuItem";
 import axios from "axios";
+
+// Components
+import Checkbox from "./Checkbox";
+import MenuItem from "../Home/MenuItem";
+
+// CSS
+import { StickyContainer, Sticky } from "react-sticky";
+import Slider, { createSliderWithTooltip } from "rc-slider";
 import "rc-slider/assets/index.css";
+import "./Form.css";
 
 function distanceFormatter(v) {
   return `${v} m`;
@@ -89,80 +95,63 @@ export default class Form extends React.Component {
         }
       }
 
-      return <MenuItem 
-                key={index}
-                itemName={menuItem.food_name}
-                restaurantName={menuItem.brand_name}
-                calories={menuItem.nf_calories}
-                tags={menuItem.claims}
-              />
+      return (
+        <MenuItem
+          key={index}
+          itemName={menuItem.food_name}
+          restaurantName={menuItem.brand_name}
+          calories={menuItem.nf_calories}
+          tags={menuItem.claims}
+        />
+      );
     });
 
     return (
-      <div>
-        <form>
-          <br />
-          <br />
-          <Datalist
-            hasLabel="true"
-            htmlFor="datalist"
-            label="Diet Plan"
-            options="Vegan, Vegetarian, Halal, Kosher, Pescatarian"
-          />
-          <br />
-          <br />
-          <h4> Restrictions </h4>
-          <br />
-
-          <Checkbox
-            hasLabel="true"
-            htmlFor="Low Carb"
-            label="Low Carb"
-            onChange={this.handleCheckbox}
-          />
-
-          <Checkbox
-            hasLabel="true"
-            htmlFor="Low Fat"
-            label="Low Fat"
-            onChange={this.handleCheckbox}
-          />
-
-          <Checkbox
-            hasLabel="true"
-            htmlFor="High Protein"
-            label="High Protein"
-            onChange={this.handleCheckbox}
-          />
-          <Checkbox
-            hasLabel="true"
-            htmlFor="Low Calorie"
-            label="Low Calorie"
-            onChange={this.handleCheckbox}
-          />
-          <br />
-          <br />
-          <h4> Distance </h4>
-          <div>
-            <SliderWithTooltip
-              tipFormatter={distanceFormatter}
-              tipProps={{ overlayClassName: "m" }}
-              max={500}
-              value={this.state.distance}
-              onChange={this.handleChangeDistance}
-            />
-          </div>
-          <br />
-
-          <br />
-
-          <br />
-          <button onClick={this.handleSubmit}>Submit</button>
-        </form>
-        <div className="menu-item-container">
-          {childElements}
-        </div>
-      </div>
+      <StickyContainer>
+        <Sticky bottomOffset={60} disableCompensation={true}>
+          {({ style }) => (
+            <div className="side-bar" style={style}>
+              <h4>Restrictions</h4>
+              <Checkbox
+                hasLabel="true"
+                htmlFor="Low Carb"
+                label="Low Carb"
+                onChange={this.handleCheckbox}
+              />
+              <Checkbox
+                hasLabel="true"
+                htmlFor="Low Fat"
+                label="Low Fat"
+                onChange={this.handleCheckbox}
+              />
+              <Checkbox
+                hasLabel="true"
+                htmlFor="High Protein"
+                label="High Protein"
+                onChange={this.handleCheckbox}
+              />
+              <Checkbox
+                hasLabel="true"
+                htmlFor="Low Calorie"
+                label="Low Calorie"
+                onChange={this.handleCheckbox}
+              />
+              <h4>Distance</h4>
+              <SliderWithTooltip
+                tipFormatter={distanceFormatter}
+                tipProps={{ overlayClassName: "m" }}
+                max={500}
+                value={this.state.distance}
+                onChange={this.handleChangeDistance}
+              />
+              <div className="button-wrapper">
+                <button onClick={this.handleSubmit}>Submit</button>
+              </div>
+            </div>
+          )}
+        </Sticky>
+        <div className="menu-item-container">{childElements}</div>
+      </StickyContainer>
     );
   }
 }

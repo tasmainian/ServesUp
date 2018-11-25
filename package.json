@@ -7,6 +7,7 @@
     "axios": "^0.18.0",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.5",
+    "rc-animate": "^2.5.4",
     "rc-slider": "^8.6.3",
     "rc-tooltip": "^3.7.3",
     "react": "^16.6.3",
@@ -14,6 +15,7 @@
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.4.0-beta.6",
     "react-scripts": "2.1.1",
+    "react-sticky": "^6.0.3",
     "reactstrap": "^6.5.0"
   },
   "scripts": {
