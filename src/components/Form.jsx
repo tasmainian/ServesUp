@@ -103,12 +103,11 @@ export default class Form extends React.Component {
         <form>
           <br />
           <br />
-          <Datalist
+          {/*<Datalist
             hasLabel="true"
             htmlFor="datalist"
             label="Diet Plan"
-            options="Vegan, Vegetarian, Halal, Kosher, Pescatarian"
-          />
+          options="Vegan, Vegetarian, Halal, Kosher, Pescatarian" />*/}
           <br />
           <br />
           <h4> Restrictions </h4>
