@@ -23,6 +23,10 @@ export default class Form extends React.Component {
     this.setState({ distance: e });
   };
 
+  handleChangeDiet = (e) => {
+    this.setState({ diet: e });
+  };
+  
   render() {
     return (
       <form>
@@ -34,6 +38,8 @@ export default class Form extends React.Component {
         label='Diet Plan'
         options='Vegan, Vegetarian, Halal, Kosher, Pescetarian'
         required='true'
+        value={this.state.diet}
+        onChange={this.handleChangeDiet}
       />
         <br />
         <br />
