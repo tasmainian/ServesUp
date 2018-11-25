@@ -39,6 +39,7 @@ export default class Form extends React.Component {
   };
 
   handleSubmit = e => {
+
     axios
       .get("https://tomalama.lib.id/servesup@dev", {
         params: {
@@ -89,7 +90,7 @@ export default class Form extends React.Component {
         }
       }
 
-      return <MenuItem 
+      return <MenuItem
                 key={index}
                 itemName={menuItem.food_name}
                 restaurantName={menuItem.brand_name}
@@ -103,11 +104,13 @@ export default class Form extends React.Component {
         <form>
           <br />
           <br />
-          {/*<Datalist
+          <h4> Diet Plan </h4>
+          <Datalist
             hasLabel="true"
             htmlFor="datalist"
-            label="Diet Plan"
-          options="Vegan, Vegetarian, Halal, Kosher, Pescatarian" />*/}
+            label=""
+            options="Vegan, Vegetarian, Halal, Kosher, Pescatarian"
+          />
           <br />
           <br />
           <h4> Restrictions </h4>
