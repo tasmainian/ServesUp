@@ -1,9 +1,9 @@
-import React from 'react'
-import Slider, { createSliderWithTooltip } from 'rc-slider';
-import Datalist from './Datalist'
-import Checkbox from './Checkbox'
-import axios from 'axios'
-import 'rc-slider/assets/index.css';
+import React from "react";
+import Slider, { createSliderWithTooltip } from "rc-slider";
+import Datalist from "./Datalist";
+import Checkbox from "./Checkbox";
+import axios from "axios";
+import "rc-slider/assets/index.css";
 
 function distanceFormatter(v) {
   return `${v} m`;
@@ -12,109 +12,148 @@ function distanceFormatter(v) {
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 export default class Form extends React.Component {
-
   state = {
     diet: undefined,
     restrictions: [],
-    distance: 0
+    distance: 0,
+    menuItems: []
   };
 
-  handleChangeDistance = (e) => {
+  handleChangeDistance = e => {
     this.setState({ distance: e });
   };
 
-  handleCheckbox = (e) => {
+  handleCheckbox = e => {
     if (e.checked) {
-      this.setState((prevState) => ({
+      this.setState(prevState => ({
         restrictions: [...prevState.restrictions, e.label]
       }));
     } else {
-      this.setState((prevState) => ({
-        restrictions: prevState.restrictions.filter((element) => element !== e.label)
+      this.setState(prevState => ({
+        restrictions: prevState.restrictions.filter(
+          element => element !== e.label
+        )
       }));
     }
-  }
+  };
 
-  handleSubmit = (e) => {
-    axios.get('https://tomalama.lib.id/servesup@dev', {
-      params: {
-        ll: this.state.ll,
-        distance: this.state.distance
-      }
-    }).then((response) => {
-      console.log(response);
-    });
+  handleSubmit = e => {
+    axios
+      .get("https://tomalama.lib.id/servesup@dev", {
+        params: {
+          ll: this.state.ll,
+          distance: this.state.distance
+        }
+      })
+      .then(response => {
+        this.setState({ menuItems: response.data });
+      });
     e.preventDefault();
   };
 
   render() {
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.setState({ 
-          ll: position.coords.latitude + ',' + position.coords.longitude
+      navigator.geolocation.getCurrentPosition(position => {
+        this.setState({
+          ll: position.coords.latitude + "," + position.coords.longitude
         });
       });
-    } else {
     }
 
+    const childElements = this.state.menuItems.map(menuItem => {
+      if (this.state.restrictions.includes("Low Carb")) {
+        if (
+          menuItem.nf_total_carbohydrate / menuItem.serving_weight_grams >
+          0.05
+        ) {
+          return;
+        }
+      }
+
+      if (this.state.restrictions.includes("Low Fat")) {
+        if (!menuItem.claims.includes("Low Fat")) {
+          return;
+        }
+      }
+
+      if (this.state.restrictions.includes("High Protein")) {
+        if (!menuItem.claims.includes("High Protein")) {
+          return;
+        }
+      }
+
+      if (this.state.restrictions.includes("Low Calorie")) {
+        if (!menuItem.claims.includes("Low Calorie")) {
+          return;
+        }
+      }
+
+      return <li key={menuItem.nix_item_name}>{menuItem.food_name}</li>;
+    });
+
     return (
-      <form>
-      <br />
-      <br />
-      <Datalist
-        hasLabel='true'
-        htmlFor='datalist'
-        label='Diet Plan'
-        options='Vegan, Vegetarian, Halal, Kosher, Pescatarian'
-      />
-        <br />
-        <br />
-        <h4> Restrictions </h4>
-        <br />
-
-        <Checkbox
-          hasLabel='true'
-          htmlFor='Peanut-Free'
-          label='Peanut-Free'
-          onChange={this.handleCheckbox}
-        />
-        <Checkbox
-          hasLabel='true'
-          htmlFor='No Dairy'
-          label='No Dairy'
-          onChange={this.handleCheckbox}
-        />
-        <Checkbox
-          hasLabel='true'
-          htmlFor='Gluten-Free'
-          label='Gluten-Free'
-          onChange={this.handleCheckbox}
-        />
-        <Checkbox
-          hasLabel='true'
-          htmlFor='Low Carb'
-          label='Low Carb'
-          onChange={this.handleCheckbox}
-        />
-        <br />
-        <br />
-        <h4> Distance </h4>
-        <div>
-          <SliderWithTooltip
-            tipFormatter={distanceFormatter}
-            tipProps={{ overlayClassName: 'm' }}
-            max={300}
-            value={this.state.distance}
-            onChange={this.handleChangeDistance}
+      <div>
+        <form>
+          <br />
+          <br />
+          <Datalist
+            hasLabel="true"
+            htmlFor="datalist"
+            label="Diet Plan"
+            options="Vegan, Vegetarian, Halal, Kosher, Pescatarian"
           />
-        </div>
-        <br />
+          <br />
+          <br />
+          <h4> Restrictions </h4>
+          <br />
 
-        <br />
+          <Checkbox
+            hasLabel="true"
+            htmlFor="Low Carb"
+            label="Low Carb"
+            onChange={this.handleCheckbox}
+          />
 
-        <br />
-        <button onClick={this.handleSubmit}>Submit</button>
-      </form>
+          <Checkbox
+            hasLabel="true"
+            htmlFor="Low Fat"
+            label="Low Fat"
+            onChange={this.handleCheckbox}
+          />
+
+          <Checkbox
+            hasLabel="true"
+            htmlFor="High Protein"
+            label="High Protein"
+            onChange={this.handleCheckbox}
+          />
+          <Checkbox
+            hasLabel="true"
+            htmlFor="Low Calorie"
+            label="Low Calorie"
+            onChange={this.handleCheckbox}
+          />
+          <br />
+          <br />
+          <h4> Distance </h4>
+          <div>
+            <SliderWithTooltip
+              tipFormatter={distanceFormatter}
+              tipProps={{ overlayClassName: "m" }}
+              max={500}
+              value={this.state.distance}
+              onChange={this.handleChangeDistance}
+            />
+          </div>
+          <br />
+
+          <br />
+
+          <br />
+          <button onClick={this.handleSubmit}>Submit</button>
+        </form>
+        {childElements}
+      </div>
     );
   }
 }
