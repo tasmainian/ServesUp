@@ -12,6 +12,19 @@ class Label extends React.Component {
 
 // Create component for checkbox input
 export default class Checkbox extends React.Component {
+
+  state = {
+    checked: false
+  }
+
+  handleToggle = () => {
+    this.setState({ checked: !this.state.checked })
+    this.props.onChange({ 
+      checked: !this.state.checked,
+      label: this.props.label
+    });
+  }
+
   render() {
     return (
       <fieldset>
@@ -24,6 +37,7 @@ export default class Checkbox extends React.Component {
             name={this.props.name || null}
             required={this.props.required || null}
             type='checkbox'
+            onChange={this.handleToggle}
           />
           {this.props.label}
         </label>

@@ -23,6 +23,18 @@ export default class Form extends React.Component {
     this.setState({ distance: e });
   };
 
+  handleCheckbox = (e) => {
+    if (e.checked) {
+      this.setState((prevState) => ({
+        restrictions: [...prevState.restrictions, e.label]
+      }));
+    } else {
+      this.setState((prevState) => ({
+        restrictions: prevState.restrictions.filter((element) => element !== e.label)
+      }));
+    }
+  }
+
   handleSubmit = (e) => {
     axios.get('https://tomalama.lib.id/servesup@dev', {
       params: {
@@ -62,23 +74,27 @@ export default class Form extends React.Component {
 
         <Checkbox
           hasLabel='true'
-          htmlFor='checkbox'
-          label='Peanuts-Free'
+          htmlFor='Peanut-Free'
+          label='Peanut-Free'
+          onChange={this.handleCheckbox}
         />
         <Checkbox
           hasLabel='true'
-          htmlFor='checkbox'
-          label='Dairy-Free'
+          htmlFor='No Dairy'
+          label='No Dairy'
+          onChange={this.handleCheckbox}
         />
         <Checkbox
           hasLabel='true'
-          htmlFor='checkbox'
+          htmlFor='Gluten-Free'
           label='Gluten-Free'
+          onChange={this.handleCheckbox}
         />
         <Checkbox
           hasLabel='true'
-          htmlFor='checkbox'
-          label='Low-Carbs'
+          htmlFor='Low Carb'
+          label='Low Carb'
+          onChange={this.handleCheckbox}
         />
         <br />
         <br />
