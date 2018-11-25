@@ -39,7 +39,6 @@ export default class Form extends React.Component {
   };
 
   handleSubmit = e => {
-
     axios
       .get("https://tomalama.lib.id/servesup@dev", {
         params: {
@@ -90,27 +89,20 @@ export default class Form extends React.Component {
         }
       }
 
-      return <MenuItem
-                key={index}
-                itemName={menuItem.food_name}
-                restaurantName={menuItem.brand_name}
-                calories={menuItem.nf_calories}
-                tags={menuItem.claims}
-              />
+      return (
+        <MenuItem
+          key={index}
+          itemName={menuItem.food_name}
+          restaurantName={menuItem.brand_name}
+          calories={menuItem.nf_calories}
+          tags={menuItem.claims}
+        />
+      );
     });
 
     return (
       <div>
         <form>
-          <br />
-          <br />
-          <h4> Diet Plan </h4>
-          <Datalist
-            hasLabel="true"
-            htmlFor="datalist"
-            label=""
-            options="Vegan, Vegetarian, Halal, Kosher, Pescatarian"
-          />
           <br />
           <br />
           <h4> Restrictions </h4>
@@ -161,9 +153,7 @@ export default class Form extends React.Component {
           <br />
           <button onClick={this.handleSubmit}>Submit</button>
         </form>
-        <div className="menu-item-container">
-          {childElements}
-        </div>
+        <div className="menu-item-container">{childElements}</div>
       </div>
     );
   }
