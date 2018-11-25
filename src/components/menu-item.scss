@@ -1,0 +1,145 @@
+h2 {
+  color: #fff;
+  font-family: 'Arial Narrow', serif;
+  font-size: 1.5em;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  line-height: 2.2em;
+  padding-top: 15px;
+  padding-left: 100px;
+}
+
+h5 {
+  color: #fff;
+  font-family: 'Arial Narrow', sans-serif;
+  font-size: 1.2em;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  line-height: 2.2em;
+  padding-top: 15px;
+  padding-left: 100px;
+}
+
+h6 {
+  color: #fff;
+  font-family: 'Impact', sans-serif;
+  font-size: 1.0em;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  line-height: 2.2em;
+  padding-top: -15px;
+}
+
+.menu-item-container {
+    align-content: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.menu-item {
+    background-color: #2E7D32;
+    border: solid 1px #2E7D32;
+    border-radius: 2px;
+    color: white;
+    display: flex;
+    flex-flow: row;
+    margin: 0 auto 20px;
+    padding: 10px;
+    width: 70%;
+    -webkit-box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44);
+    box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44);
+}
+
+.restaurants-container{
+  align-content: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.restaurants{
+  background-color: #43A047;
+  border: solid 1px #43A047;
+  border-radius: 2px;
+  color: white;
+  display: flex;
+  flex-flow: row;
+  margin: 0 auto 20px;
+  padding: 10px;
+  width: 70%;
+  -webkit-box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44);
+  box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44);
+}
+
+.calories-container{
+  align-content: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.calories{
+  background-color: #4CAF50;
+  border: solid 1px #4CAF50;
+  border-radius: 2px;
+  color: white;
+  display: flex;
+  flex-flow: row;
+  margin: 0 auto 20px;
+  padding: 10px;
+  width: 70%;
+  -webkit-box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44);
+  box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44);
+}
+
+.tags-container{
+  align-content: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.tags{
+  background-color: #81C784;
+  border: solid 1px #81C784;
+  border-radius: 2px;
+  color: white;
+  display: flex;
+  flex-flow: row;
+  margin: 0 auto 20px;
+  padding: 10px;
+  width: 70%;
+  -webkit-box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44);
+  box-shadow: 6px 6px 6px 1px rgba(114,114,114,0.44);
+}
+
+.menu-item__name {
+
+}
+
+.menu-item__restaurant {
+
+}
+
+.menu-item__calories {
+
+}
+
+.menu-item__tags {
+
+}
+
+.menu-item__tag {
+
+}
